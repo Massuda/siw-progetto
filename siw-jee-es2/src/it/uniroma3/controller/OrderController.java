@@ -48,7 +48,7 @@ public class OrderController {
 
 	public String findOrder() {
 		this.order = orderFacade.getOrder(id);
-		return "provider";
+		return "order";
 	}
 	
 	public String findOrder(Long id) {

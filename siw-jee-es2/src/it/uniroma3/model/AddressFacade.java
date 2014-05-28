@@ -24,7 +24,7 @@ public class AddressFacade {
 		return address;
 	}
 	
-	public List<Address> getAllAddress() {
+	public List<Address> getAllAddresses() {
         CriteriaQuery<Address> cq = em.getCriteriaBuilder().createQuery(Address.class);
         cq.select(cq.from(Address.class));
         List<Address> addresses = em.createQuery(cq).getResultList();
