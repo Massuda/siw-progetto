@@ -35,13 +35,7 @@ public class ProductController {
 		
 		return "update";
 	}
-	
-	public String findByName(){
-		this.products = (List<Product>) productFacade.findByName(name);
-		return "products"; 
-	}
-	
-		
+			
 	public String createProduct() {
 		this.product = productFacade.createProduct(name, code, price, description);
 		return "product"; 

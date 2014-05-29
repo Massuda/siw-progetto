@@ -13,14 +13,10 @@
 	<f:view>
 		<h1>SIW-JEE-ES2</h1>
 		<ul>
-			<li><a href='<c:url value="/faces/newProduct.jsp" />'>Insert
-					a new product</a></li>
+			<li><a href='<c:url value="/faces/newProduct.jsp" />'>Insert a new product</a></li>
 			<li><h:form>
 					<h:commandLink action="#{productController.listProducts}"
 						value="List all Products" />
-				</h:form></li>
-				<li><h:form><h:commandLink action="/faces/findProductByName.jsp"
-						value="find by name" />
 				</h:form></li>
 		</ul>
 	</f:view>
