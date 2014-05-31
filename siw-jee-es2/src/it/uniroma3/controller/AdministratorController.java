@@ -41,7 +41,7 @@ public class AdministratorController {
 		return "administrator";
 	}
 	
-	public String loginAdministrator(){
+	public String administratorLogin(){
 		String nextPage = "loginError";
 		try{ 
 			Administrator administrator = administratorFacade.checkEmail(email);

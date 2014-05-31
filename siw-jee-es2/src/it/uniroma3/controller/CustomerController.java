@@ -43,7 +43,7 @@ public class CustomerController {
 
 	public String createCustomer() {
 		this.customer = customerFacade.createCustomer(firstName,lastName,email,password,phoneNumber,dateOfBirth,address);
-		return "home"; 
+		return "userHome"; 
 	}
 
 	public String listCustomers() {
