@@ -16,7 +16,7 @@
 			
 				<li><a href='<c:url value="/faces/newCustomer.jsp" />'>Registration</a></li>
 				<li><a href='<c:url value="/faces/customerLogin.jsp" />'>Login User</a></li>
-				<li><a href='<c:url value="/faces/adminLogin.jsp" />'></a>Login Administrator</li>
+				<li><a href='<c:url value="/faces/administratorLogin.jsp" />'>Login Administrator</a></li>
 		</ul>
 	</f:view>
 </body>

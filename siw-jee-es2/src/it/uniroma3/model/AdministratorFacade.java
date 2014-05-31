@@ -29,7 +29,7 @@ public class AdministratorFacade {
 	}
 	
 	public Administrator checkEmail(String email){
-		Query query = em.createQuery("SELECT a FROM Amministratore a WHERE a.email =:email");
+		Query query = em.createQuery("SELECT a FROM Administrator a WHERE a.email =:email");
 		query.setParameter("email",  email);
 		return (Administrator)query.getSingleResult();
 	}
