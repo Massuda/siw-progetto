@@ -1,6 +1,8 @@
 package it.uniroma3.controller;
 import it.uniroma3.model.Customer;
 import it.uniroma3.model.CustomerFacade;
+
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -10,15 +12,18 @@ import it.uniroma3.model.Order;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
+
 
 @ManagedBean
 public class CustomerController {
-	
+
 	@ManagedProperty(value="#{param.id}")
 	private Long id;
 	private String firstName;
 	private String lastName;
 	private String email;
+	private String password;
 	private String phoneNumber;
 	private Date dateOfBirth;
 	private Date registrationDate;
@@ -26,21 +31,21 @@ public class CustomerController {
 	private List<Order> orders;
 	private Customer customer;
 	private List<Customer> customers;
-	
+
 	@EJB
 	private CustomerFacade customerFacade;
-	
+
 	public String deleteCustomer(){
 		customerFacade.deleteCustomer(id);
 		this.customers = customerFacade.getAllCustomers();
 		return "customers";
 	}
-			
+
 	public String createCustomer() {
-		this.customer = customerFacade.createCustomer(firstName,lastName,email,phoneNumber,dateOfBirth,registrationDate,address);
-		return "customer"; 
+		this.customer = customerFacade.createCustomer(firstName,lastName,email,password,phoneNumber,dateOfBirth,address);
+		return "home"; 
 	}
-	
+
 	public String listCustomers() {
 		this.customers = customerFacade.getAllCustomers();
 		return "customers"; 
@@ -50,10 +55,24 @@ public class CustomerController {
 		this.customer = customerFacade.getCustomer(id);
 		return "customers";
 	}
-	
+
 	public String findCustomer(Long id) {
 		this.customer = customerFacade.getCustomer(id);
 		return "customer";
+	}
+
+	public String userLogin(){
+		String nextPage = "loginError";
+		try{ 
+			Customer customer = customerFacade.checkEmail(email);
+			if(customer.checkPassword(this.password)){
+				this.customer = customer;
+				return "userHome";
+			}
+		}
+		catch (Exception e){
+		}
+		return nextPage;
 	}
 
 	public Long getId() {
@@ -88,6 +107,13 @@ public class CustomerController {
 		this.email = email;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
@@ -152,7 +178,7 @@ public class CustomerController {
 		this.customerFacade = customerFacade;
 	}
 
-	
+
 }
 
 

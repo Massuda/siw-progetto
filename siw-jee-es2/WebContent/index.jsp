@@ -7,17 +7,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>SIW-JEE-ES2</title>
+<title>siw-jee-es2</title>
 </head>
 <body>
 	<f:view>
-		<h1>SIW-JEE-ES2</h1>
+		<h1>Welcome!</h1>
 		<ul>
-			<li><a href='<c:url value="/faces/newProduct.jsp" />'>Insert a new product</a></li>
-			<li><h:form>
-					<h:commandLink action="#{productController.listProducts}"
-						value="List all Products" />
-				</h:form></li>
+			
+				<li><a href='<c:url value="/faces/newCustomer.jsp" />'>Registration</a></li>
+				<li><a href='<c:url value="/faces/userLogin.jsp" />'>Login User</a></li>
+				<li><a href='<c:url value="/faces/adminLogin.jsp" />'></a>Login Administrator</li>
 		</ul>
 	</f:view>
 </body>

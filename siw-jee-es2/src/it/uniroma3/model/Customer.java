@@ -22,14 +22,15 @@ public class Customer {
 	private String lastName;
 
 	private String email;
+	private String password;
 
 	private String phoneNumber;
 
 	@Temporal(TemporalType.DATE)
 	private Date dateOfBirth;
 	
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date registrationDate;
+	//@Temporal(TemporalType.TIMESTAMP)
+	//private Date registrationDate;
 
 	@OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
 	private Address address;
@@ -40,13 +41,14 @@ public class Customer {
 
 	public Customer(){}
 
-	public Customer(String firstName, String lastName, String email, String phoneNumber, Date dateOfBirth, Date registrationDate, Address address) {
+	public Customer(String firstName, String lastName, String email, String password, String phoneNumber, Date dateOfBirth, Address address) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+		this.password = password;
 		this.phoneNumber = phoneNumber;
 		this.dateOfBirth = dateOfBirth;
-		this.registrationDate = registrationDate;
+	//	this.registrationDate = registrationDate;
 		this.address = address;
 		this.orders = new ArrayList<Order>();
 	}
@@ -83,6 +85,13 @@ public class Customer {
 		this.email = email;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
@@ -99,13 +108,13 @@ public class Customer {
 		this.dateOfBirth = dateOfBirth;
 	}
 	
-	public Date getRegistrationDate() {
+	/*public Date getRegistrationDate() {
 		return registrationDate;
 	}
 	
 	public void setRegistrationDate(Date registrationDate) {
 		this.registrationDate = registrationDate;
-	}
+	}*/
 
 	public Address getAddress() {
 		return address;
@@ -115,12 +124,16 @@ public class Customer {
 		this.address = address;
 	}
 
+	public boolean checkPassword(String password){
+		return this.password.equals(password);
+	}
+	
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", firstName=" + firstName
 				+ ", lastName=" + lastName + ", email=" + email
 				+ ", phoneNumber=" + phoneNumber + ", dateOfBirth="
-				+ dateOfBirth + ",  registrationDate=" + registrationDate + "address=" + address + "]";
+				+ dateOfBirth + ", address=" + address + ", password=" + password + "]";
 	}
 
 }
