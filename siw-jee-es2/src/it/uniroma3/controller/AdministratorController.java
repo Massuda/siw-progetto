@@ -2,6 +2,7 @@ package it.uniroma3.controller;
 
 import java.util.List;
 
+
 import it.uniroma3.model.Administrator;
 import it.uniroma3.model.AdministratorFacade;
 
@@ -25,28 +26,28 @@ public class AdministratorController {
 	@EJB
 	private AdministratorFacade administratorFacade;
 	
-	public String createAmministratore(){
+	public String createAdministrator(){
 		this.administrator = administratorFacade.createAdministrator(firstName, lastName, email, password);
 		return "administrator";
 	}
 	
-	public String findAmministratoreByEmail(){
+	public String findAdministratorByEmail(){
 		this.administrator = administratorFacade.getAdministratorByMail(email);
 		return "administrator";
 	}
 	
-	public String findAmministratore(Long id){
+	public String findAdministrator(Long id){
 		this.administrator = administratorFacade.getAmministratore(id);
 		return "administrator";
 	}
 	
-	public String loginAmministratore(){
+	public String loginAdministrator(){
 		String nextPage = "loginError";
 		try{ 
-			Administrator amministratore = administratorFacade.checkEmail(email);
-			if(amministratore.checkPassword(this.password)){
+			Administrator administrator = administratorFacade.checkEmail(email);
+			if(administrator.checkPassword(this.password)){
 				this.administrator = administrator;
-				return "amministratoreHome";
+				return "administratorHome";
 			}
 		}
 		catch (Exception e){
@@ -100,7 +101,7 @@ public class AdministratorController {
 		return administrator;
 	}
 
-	public void setAmministratore(Administrator amministratore) {
+	public void setAdministrator(Administrator administrator) {
 		this.administrator = administrator;
 	}
 
@@ -109,7 +110,7 @@ public class AdministratorController {
 	}
 
 	public void setAdministrator(List<Administrator> administrators) {
-		this.administrator = administrator;
+		this.administrators = administrators;
 	}
 		
 }

@@ -9,7 +9,7 @@ import javax.persistence.Query;
 
 @Stateless
 public class AdministratorFacade {
-	@PersistenceContext(unitName= "siw-jee-es2")
+	@PersistenceContext(unitName= "unit-jee-es2")
 	private EntityManager em;
 	
 	public Administrator createAdministrator(String firstName, String lastName, String email, String password){
