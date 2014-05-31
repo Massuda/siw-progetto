@@ -24,8 +24,8 @@
 			</td>
 			<td>${product.price}</td>
 			<td>
-			<h:commandLink action="#{productController.setQuantityProduct}" value="Add to cart">
-				<f:param name="id" value="#{product.id}" />
+			<h:commandLink action="#{orderLineController.setProduct(productController.getProduct)}" action="/faces/productInCart.jsp" value="Add to cart">
+				<f:param name="product" value="#{product}" />
 			</h:commandLink>
 			</td>
 		</tr>

@@ -19,7 +19,8 @@
 						value="List all Products" />
 				</h:form></li>
 			<li><h:form>
-					<h:commandLink action="#{orderConotroller.createOrder(customer in sessione)}"
+					<h:inputHidden value="#{customer.customer)" id = "customer" /> <h:message for="customer"/>
+					<h:commandLink action="#{order.createOrder}"
 						value="Create new order" />
 				</h:form></li>
 		</ul>

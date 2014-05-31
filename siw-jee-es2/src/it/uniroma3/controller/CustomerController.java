@@ -14,11 +14,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
-
-@ManagedBean
+@SessionScoped
+@ManagedBean(name="customer")
 public class CustomerController {
 
-	@ManagedProperty(value="#{param.id}")
+	
 	private Long id;
 	private String firstName;
 	private String lastName;
@@ -179,7 +179,6 @@ public class CustomerController {
 	public void setCustomerFacade(CustomerFacade customerFacade) {
 		this.customerFacade = customerFacade;
 	}
-
 
 }
 

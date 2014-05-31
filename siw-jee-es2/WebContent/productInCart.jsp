@@ -9,21 +9,17 @@
 </head>
 <body>
 	<f:view>
-		<h1>${productController.product.name}</h1>
+		<h1>${orderLineController.product.name}</h1>
 		<h2>Details</h2>
-		<div>Code: ${productController.product.code}</div>
-		<div>Price: ${productController.product.price}</div>
-		<div>Description: ${productController.product.description}</div>
-		<div>Description: ${productController.product.id}</div>
+		<div>Code: ${orderLineController.product.code}</div>
+		<div>Price: ${orderLineController.product.price}</div>
+		<div>Description: ${orderLineController.product.description}</div>
+		<div>ID: ${orderLineController.product.id}</div>
 	<h:form>
 	<div>Quantity: <h:inputText value="#{orderLineController.quantity}" 
                      required="true"
                      requiredMessage="Quantity is mandatory"
                      id="quantity"/> <h:message for="quantity" />
-	</div>
-    <div>
-		<h:commandButton value="Submit product" action="#{orderLineController.setProductOrderLine(productController.product.code)}" />
-	
 	</div>
 	<div>
 		<h:commandButton value="Submit" action="#{orderLineController.createOrderLine}" />

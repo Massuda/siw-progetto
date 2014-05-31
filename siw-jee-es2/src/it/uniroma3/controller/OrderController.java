@@ -7,14 +7,16 @@ import it.uniroma3.model.Customer;
 import it.uniroma3.model.OrderFacade;
 import it.uniroma3.model.OrderLine;
 import it.uniroma3.model.Order;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 
-
-@ManagedBean
+@SessionScoped
+@ManagedBean(name = "order")
 public class OrderController {
 	
-	@ManagedProperty(value="#{param.id}")
+
 	private Long id;
     private Date creationtime;
     private Customer customer;
@@ -35,10 +37,11 @@ public class OrderController {
 		
 		return "update";
 	}
+	
 		
-	public String createOrder() {
+	public String createOrder(){
 		this.order = orderFacade.createOrder(customer);
-		aggiungimi(); 		// quando creo il prodotto, lo aggiungo alla lista degli ordini del customer che lo ha creato (SI POTREBBE FARE QUANDO C E LA CONFERMA)
+		//aggiungimi(); 		// quando creo il prodotto, lo aggiungo alla lista degli ordini del customer che lo ha creato (SI POTREBBE FARE QUANDO C E LA CONFERMA)
 		return "orderProducts"; 
 	}
 	

@@ -17,6 +17,9 @@
 				<li><a href='<c:url value="/faces/newCustomer.jsp" />'>Registration</a></li>
 				<li><a href='<c:url value="/faces/customerLogin.jsp" />'>Login User</a></li>
 				<li><a href='<c:url value="/faces/administratorLogin.jsp" />'>Login Administrator</a></li>
+				<h:form>
+				<li><h:commandLink action="#{productController.viewProducts}" value="View products' catalogue" /></li>
+				</h:form>
 		</ul>
 	</f:view>
 </body>

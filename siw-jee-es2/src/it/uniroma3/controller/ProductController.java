@@ -45,7 +45,12 @@ public class ProductController {
 		this.products = productFacade.getAllProducts();
 		return "products"; 
 	}
-
+	
+	public String viewProducts() {
+		this.products = productFacade.getAllProducts();
+		return "viewProducts"; 
+	}
+	
 	public String findProduct() {
 		this.product = productFacade.getProduct(id);
 		return "product";
