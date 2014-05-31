@@ -14,6 +14,7 @@ public class Administrator {
 	private Long id;
 	@Column(nullable = false)
 	private String firstName;
+	@Column(nullable = false)
 	private String lastName;
 	@Column(unique = true, nullable = false)
 	private String email;
@@ -21,6 +22,13 @@ public class Administrator {
 	private String password;
 	
 	public Administrator() {
+	}	
+
+	public Administrator(String firstName, String lastName, String email, String password) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
 	}
 	
 	public String getFirstName() {
@@ -37,13 +45,6 @@ public class Administrator {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
-	}
-
-	public Administrator(String firstName, String lastName, String email, String password) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.password = password;
 	}
 	
 	public Long getId() {

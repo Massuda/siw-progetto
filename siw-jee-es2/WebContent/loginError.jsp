@@ -6,16 +6,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>siw-jee-es2</title>
+<title>Login Error</title>
 </head>
 <body>
 <f:view>
-		<h1>Errore</h1>
-		<ul>
-			<li><a href='<c:url value="/faces/index.jsp" />'>Home</a></li>
-			
-		</ul>
-	</f:view>
-
+<h1>Incorrect Email or Password</h1>
+<h:form>
+    <div>email: <h:inputText value="#{customerController.email}" 
+                     required="true"
+                     requiredMessage="Email is mandatory"
+                     id="email"/> <h:message for="email" />
+	</div>
+    <div>password: <h:inputText value="#{customerController.password}" 
+                     required="true"
+                     requiredMessage="Password is mandatory"
+                     id="password"/> <h:message for="password" />
+	</div>
+	<div>
+		<h:commandButton value="Submit"  action="#{customerController.userLogin}"/>
+	</div>
+</h:form>
+</f:view>
 </body>
 </html>
