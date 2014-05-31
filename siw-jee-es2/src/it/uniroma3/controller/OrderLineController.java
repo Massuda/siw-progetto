@@ -28,6 +28,11 @@ public class OrderLineController {
 	@EJB
 	private OrderLineFacade orderLineFacade;
 	
+	public String createOrderLine() {
+		this.orderLine = orderLineFacade.createOrderLine(product, quantity);
+		return "orderLine"; 
+	}
+	
 	public String deleteOrderLine(){
 		orderLineFacade.deleteOrderLine(id);
 		this.orderLines = orderLineFacade.getAllOrderLines();
@@ -37,11 +42,6 @@ public class OrderLineController {
 	public String updateOrderLine(){
 		this.orderLine = orderLineFacade.getOrderLine(id);		
 		return "update";
-	}
-			
-	public String createProduct() {
-		this.orderLine = orderLineFacade.createOrderLine(product, quantity);
-		return "orderLine"; 
 	}
 	
 	public String listOrderLines() {
@@ -58,7 +58,11 @@ public class OrderLineController {
 		this.orderLine = orderLineFacade.getOrderLine(id);
 		return "orderLine";
 	}
-
+	
+	public void setProductOrderLine(String code){
+		this.product = orderLineFacade.findProductByCode(code);
+	}
+	
 	public Long getId() {
 		return id;
 	}

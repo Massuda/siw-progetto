@@ -37,8 +37,8 @@ public class OrderController {
 	}
 		
 	public String createOrder() {
-		this.order = orderFacade.createOrder();
-		return "order"; 
+		this.order = orderFacade.createOrder(customer);
+		return "orderProducts"; 
 	}
 	
 	public String listOrder() {
@@ -112,6 +112,9 @@ public class OrderController {
 		this.orders = orders;
 	}
 
+	public void aggiungimi(){
+		this.customer.getOrders().add(this.order);
+	}
 	
 }
 

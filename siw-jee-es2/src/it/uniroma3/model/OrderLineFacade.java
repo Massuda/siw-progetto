@@ -52,5 +52,11 @@ public class OrderLineFacade {
 		OrderLine orderLine = em.find(OrderLine.class, id);
         deleteOrderLine(orderLine);
 	}
+	
+	public Product findProductByCode(String code){
+		Query query = em.createQuery("SELECT p FROM Product p WHERE p.code =:code");
+		query.setParameter("code",  code);
+		return (Product)query.getSingleResult();
+}
 		
 }

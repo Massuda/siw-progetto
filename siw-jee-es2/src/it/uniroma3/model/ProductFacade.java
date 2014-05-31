@@ -53,4 +53,13 @@ public class ProductFacade {
         deleteProduct(product);
 	}
 		
+	public Product getByCodeProduct(String code){
+			Query query = em.createQuery("SELECT p FROM Product p WHERE p.code =:code");
+			query.setParameter("code",  code);
+			return (Product)query.getSingleResult();
+	}
+	
+	
+	
+	
 }

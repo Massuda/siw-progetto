@@ -11,7 +11,7 @@ import javax.faces.bean.ManagedProperty;
 
 @ManagedBean
 public class ProductController {
-	
+
 	@ManagedProperty(value="#{param.id}")
 	private Long id;
 	private String name;
@@ -20,27 +20,27 @@ public class ProductController {
 	private String code;
 	private Product product;
 	private List<Product> products;
-	
+
 	@EJB
 	private ProductFacade productFacade;
-	
+
 	public String deleteProduct(){
 		productFacade.deleteProduct(id);
 		this.products = productFacade.getAllProducts();
 		return "products";
 	}
-	
+
 	public String updateProduct(){
 		this.product = productFacade.getProduct(id);
-		
+
 		return "update";
 	}
-			
+
 	public String createProduct() {
 		this.product = productFacade.createProduct(name, code, price, description);
 		return "product"; 
 	}
-	
+
 	public String listProducts() {
 		this.products = productFacade.getAllProducts();
 		return "products"; 
@@ -48,12 +48,22 @@ public class ProductController {
 
 	public String findProduct() {
 		this.product = productFacade.getProduct(id);
-		return "products";
+		return "product";
 	}
-	
+
 	public String findProduct(Long id) {
 		this.product = productFacade.getProduct(id);
 		return "product";
+	}
+	
+	public Product findByCodeProduct(String code){
+		this.product = productFacade.getByCodeProduct(code);
+		return this.product;
+	}
+	
+	public String setQuantityProduct(){
+		this.product = productFacade.getProduct(id);
+		return "productInCart";
 	}
 
 	public Long getId() {

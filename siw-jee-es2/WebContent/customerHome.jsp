@@ -18,7 +18,10 @@
 					<h:commandLink action="#{productController.listProducts}"
 						value="List all Products" />
 				</h:form></li>
-			<li><a href='<c:url value="/faces/index.jsp" />'>logout</a></li>
+			<li><h:form>
+					<h:commandLink action="#{orderConotroller.createOrder(customer in sessione)}"
+						value="Create new order" />
+				</h:form></li>
 		</ul>
 	</f:view>
 </body>

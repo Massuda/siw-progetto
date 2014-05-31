@@ -13,6 +13,6 @@
 <div>Price: ${productController.product.price}</div>
 <div>Description: ${productController.product.description}</div>
 </f:view>
-<li><a href='<c:url value="/faces/index.jsp" />'>Index</a></li>
+<div><a href='<c:url value="/faces/index.jsp" />'>Index</a></div>
 </body>
 </html>
