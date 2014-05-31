@@ -43,7 +43,7 @@ public class CustomerController {
 
 	public String createCustomer() {
 		this.customer = customerFacade.createCustomer(firstName,lastName,email,password,phoneNumber,dateOfBirth,address);
-		return "userHome"; 
+		return "customerHome"; 
 	}
 
 	public String listCustomers() {
@@ -61,13 +61,13 @@ public class CustomerController {
 		return "customer";
 	}
 
-	public String userLogin(){
+	public String customerLogin(){
 		String nextPage = "loginError";
 		try{ 
 			Customer customer = customerFacade.checkEmail(email);
 			if(customer.checkPassword(this.password)){
 				this.customer = customer;
-				return "userHome";
+				return "customerHome";
 			}
 		}
 		catch (Exception e){

@@ -23,7 +23,9 @@
                      id="password"/> <h:message for="password" />
 	</div>
 	<div>
-		<h:commandButton value="Submit"  action="#{customerController.userLogin}"/>
+		<h:commandButton value="Submit"  action="#{customerController.customerLogin}"/>
+		<h:commandButton value="Home"  action="/faces/index.jsp"/>
+		<h:commandButton value="Registration"  action="/faces/newCustomer.jsp"/>
 	</div>
 </h:form>
 </f:view>

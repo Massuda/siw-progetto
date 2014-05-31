@@ -22,7 +22,7 @@
                      id="password"/> <h:message for="password" />
 	</div>
 	<div>
-		<h:commandButton value="Submit"  action="#{customerController.userLogin}"/>
+		<h:commandButton value="Submit"  action="#{customerController.customerLogin}"/>
 	</div>
 </h:form>
 </f:view>
