@@ -38,6 +38,7 @@ public class OrderController {
 		
 	public String createOrder() {
 		this.order = orderFacade.createOrder(customer);
+		aggiungimi(); 		// quando creo il prodotto, lo aggiungo alla lista degli ordini del customer che lo ha creato (SI POTREBBE FARE QUANDO C E LA CONFERMA)
 		return "orderProducts"; 
 	}
 	

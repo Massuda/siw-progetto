@@ -15,7 +15,8 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 
-@ManagedBean
+@ManagedBean(name ="customer")
+@SessionScoped
 public class CustomerController {
 
 	@ManagedProperty(value="#{param.id}")
