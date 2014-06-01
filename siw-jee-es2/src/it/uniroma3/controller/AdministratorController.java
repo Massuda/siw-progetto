@@ -3,18 +3,22 @@ package it.uniroma3.controller;
 import java.util.List;
 
 
+
 import it.uniroma3.model.Administrator;
 import it.uniroma3.model.AdministratorFacade;
+
 
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 
 @ManagedBean
+@SessionScoped
 public class AdministratorController {
 
-	@ManagedProperty(value="#{param.id}")
+	//@ManagedProperty(value="#{param.id}")
 	private Long id;
 	private String firstName;
 	private String lastName;
@@ -65,20 +69,24 @@ public class AdministratorController {
 		this.id = id;
 	}
 
-	public String getNome() {
+	public String getFirstName() {
 		return firstName;
 	}
 
-	public void setNome(String nome) {
-		this.firstName = nome;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getCognome() {
+	public String getLastName() {
 		return lastName;
 	}
 
-	public void setCognome(String cognome) {
-		this.lastName = cognome;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public void setAdministrators(List<Administrator> administrators) {
+		this.administrators = administrators;
 	}
 
 	public String getEmail() {
