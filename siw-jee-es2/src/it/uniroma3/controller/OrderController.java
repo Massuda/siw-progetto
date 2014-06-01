@@ -13,7 +13,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 @SessionScoped
-@ManagedBean(name = "order")
+@ManagedBean
 public class OrderController {
 	
 

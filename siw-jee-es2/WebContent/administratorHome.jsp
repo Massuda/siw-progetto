@@ -11,7 +11,7 @@
 </head>
 <body>
 	<f:view>
-		<h1>Welcome Administrator</h1>
+		<h1>Welcome Administrator ${administratorController.getAdministrator().firstName}</h1>
 		<ul>
 		<li><a href='<c:url value="/faces/newProduct.jsp" />'>Insert a new product</a></li>
 			<li><h:form>

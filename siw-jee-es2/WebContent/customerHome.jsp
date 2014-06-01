@@ -11,18 +11,14 @@
 </head>
 <body>
 	<f:view>
-		<h1>Welcome ${customerController.firstName}</h1>
+		<h1>Welcome ${customerController.getCustomer().firstName}</h1>
 		<ul>
-		<li><a href='<c:url value="/faces/newProduct.jsp" />'>Insert a new product</a></li>
 			<li><h:form>
-					<h:commandLink action="#{productController.listProducts}"
-						value="List all Products" />
+					<h:commandLink action="#{productController.viewProducts}"
+						value="Catalogue" />
 				</h:form></li>
-			<li><h:form>
-					<h:inputHidden value="#{customer.customer)" id = "customer" /> <h:message for="customer"/>
-					<h:commandLink action="#{order.createOrder}"
-						value="Create new order" />
-				</h:form></li>
+			<li><a href='<c:url value="/faces/customerHome.jsp" />'>Home</a></li>
+		
 		</ul>
 	</f:view>
 </body>
