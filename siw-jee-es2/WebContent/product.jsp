@@ -17,7 +17,7 @@
 		<div>Description: ${productController.product.description}</div>
 	
 	<div>
-		<li><a href='<c:url value="/faces/administratorHome.jsp" />'>Home</a></li> 
+		<li><a href='<c:url value="/faces/index.jsp" />'>Index</a></li> 
 	</div>
 	<h:form>
 		<li><h:commandLink action="#{productController.viewProducts}"

@@ -30,7 +30,7 @@
 
 	</f:view>
 	<div>
-		<a href='<c:url value="/faces/index.jsp" />'>Index</a>
+		<a href='<c:url value="/faces/customerHome.jsp" />'>Home</a>
 	</div>
 </body>
 </html>
