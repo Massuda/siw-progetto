@@ -25,7 +25,7 @@ public class Order {
     private List<OrderLine> orderLines;
 
     
-    public Order(){}
+    public Order(){this.orderLines = new ArrayList<OrderLine>();}
     
     public Order(Customer customer){
     	this.orderLines = new ArrayList<OrderLine>();

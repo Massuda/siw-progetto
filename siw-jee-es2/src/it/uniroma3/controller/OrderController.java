@@ -1,5 +1,6 @@
 package it.uniroma3.controller;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -14,10 +15,15 @@ import javax.faces.bean.SessionScoped;
 
 @SessionScoped
 @ManagedBean
-public class OrderController {
+public class OrderController implements Serializable{
 	
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long id;
+	private String prova;
     private Date creationtime;
     private Customer customer;
     private List<OrderLine> orderLines;
@@ -25,9 +31,8 @@ public class OrderController {
 	private Order order;
 	private List<Order> orders;
 	
-	@ManagedProperty(value="#{customerController}")
+    @ManagedProperty(value="#{customerController}")
     private CustomerController customerController;
-	
 	
 	public String deleteOrder(){
 		orderFacade.deleteOrder(id);
@@ -36,16 +41,37 @@ public class OrderController {
 	}
 	
 	public String updateOrder(){
-		this.order = orderFacade.getOrder(id);
-		
+		this.order = orderFacade.getOrder(id);		
 		return "update";
 	}
 	
 		
+	public CustomerController getCustomerController() {
+		return customerController;
+	}
+
+	public void setCustomerController(CustomerController customerController) {
+		this.customerController = customerController;
+	}
+	
+	public void setCustomerOrder(){
+		//Customer c=customerController.getCustomer();
+		this.customer = customerController.getCustomer();
+		//return "prova"; 
+	}
+	
+	public String provaOrder(){
+		//Customer c=customerController.getCustomer();
+		this.customer = customerController.getCustomer();
+		return "prova"; 
+	}
+
 	public String createOrder(){
-		this.order = orderFacade.createOrder(customerController.getCustomer());
+		//Customer c=customerController.getCustomer();
+		setCustomerOrder();
+		this.order = orderFacade.createOrder();
 		//aggiungimi(); 		// quando creo il prodotto, lo aggiungo alla lista degli ordini del customer che lo ha creato (SI POTREBBE FARE QUANDO C E LA CONFERMA)
-		return "orderProducts"; 
+		return "order"; 
 	}
 	
 	public String listOrder() {
@@ -122,6 +148,16 @@ public class OrderController {
 	public void aggiungimi(){
 		this.customer.getOrders().add(this.order);
 	}
+
+	public String getProva() {
+		return prova;
+	}
+
+	public void setProva(String prova) {
+		this.prova = prova;
+	}
+	
+	
 	
 }
 

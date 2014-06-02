@@ -12,15 +12,23 @@
 <body>
 	<f:view>
 		<h1>Welcome ${customerController.firstName}</h1>
-		<ul>
-			<li><h:form>
+		<ul><h:form>
+			<li>
 					<h:commandLink action="#{productController.listProducts}"
 						value="List all Products" />
-				</h:form></li>
-			<li><h:form>
+				</li>
+				<li>
 					<h:commandLink action="#{orderController.createOrder}"
-						value="Create new order" />
-				</h:form></li>
+						value="New Order" />
+				</li>
+					<li>
+		<h:commandButton value="New Order"  action="#{orderController.createOrder}"/>
+	</li>
+			<li>
+					<h:commandLink action="#{orderController.provaOrder}"
+						value="vai a prova prende la passw" />
+				</li>
+				</h:form>
 		</ul>
 	</f:view>
 </body>

@@ -3,6 +3,7 @@ import it.uniroma3.model.Customer;
 import it.uniroma3.model.CustomerFacade;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -14,11 +15,15 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
+@ManagedBean(name="customerController")
 @SessionScoped
-@ManagedBean(name = "customerController")
-public class CustomerController {
+public class CustomerController implements Serializable{
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long id;
 	private String firstName;
 	private String lastName;
