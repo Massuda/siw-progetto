@@ -11,18 +11,18 @@
 <body>
 <f:view>
 <h:form>
-    <div>email: <h:inputText value="#{customer.email}" 
+    <div>email: <h:inputText value="#{customerController.email}" 
                      required="true"
                      requiredMessage="Email is mandatory"
                      id="email"/> <h:message for="email" />
 	</div>
-    <div>password: <h:inputText value="#{customer.password}" 
+    <div>password: <h:inputText value="#{customerController.password}" 
                      required="true"
                      requiredMessage="Password is mandatory"
                      id="password"/> <h:message for="password" />
 	</div>
 	<div>
-		<h:commandButton value="Submit"  action="#{customer.customerLogin}"/>
+		<h:commandButton value="Submit"  action="#{customerController.customerLogin}"/>
 	</div>
 </h:form>
 </f:view>

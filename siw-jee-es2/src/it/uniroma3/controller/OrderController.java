@@ -13,7 +13,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 @SessionScoped
-@ManagedBean(name = "order")
+@ManagedBean
 public class OrderController {
 	
 
@@ -24,6 +24,9 @@ public class OrderController {
 	private OrderFacade orderFacade;
 	private Order order;
 	private List<Order> orders;
+	
+	@ManagedProperty(value="#{customerController}")
+    private CustomerController customerController;
 	
 	
 	public String deleteOrder(){
@@ -40,7 +43,7 @@ public class OrderController {
 	
 		
 	public String createOrder(){
-		this.order = orderFacade.createOrder(customer);
+		this.order = orderFacade.createOrder(customerController.getCustomer());
 		//aggiungimi(); 		// quando creo il prodotto, lo aggiungo alla lista degli ordini del customer che lo ha creato (SI POTREBBE FARE QUANDO C E LA CONFERMA)
 		return "orderProducts"; 
 	}

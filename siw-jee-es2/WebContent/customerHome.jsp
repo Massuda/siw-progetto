@@ -7,20 +7,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>siw-jee-es2</title>
+<title>Customer Home</title>
 </head>
 <body>
 	<f:view>
 		<h1>Welcome ${customerController.firstName}</h1>
 		<ul>
-		<li><a href='<c:url value="/faces/newProduct.jsp" />'>Insert a new product</a></li>
 			<li><h:form>
 					<h:commandLink action="#{productController.listProducts}"
 						value="List all Products" />
 				</h:form></li>
 			<li><h:form>
-					<h:inputHidden value="#{customer.customer)" id = "customer" /> <h:message for="customer"/>
-					<h:commandLink action="#{order.createOrder}"
+					<h:commandLink action="#{orderController.createOrder}"
 						value="Create new order" />
 				</h:form></li>
 		</ul>

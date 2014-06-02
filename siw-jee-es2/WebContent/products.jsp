@@ -38,7 +38,7 @@
 
 	</f:view>
 	<div>
-		<a href='<c:url value="/faces/index.jsp" />'>Index</a>
+		<a href='<c:url value="/faces/administratorHome.jsp" />'>Home</a>
 	</div>
 </body>
 </html>
