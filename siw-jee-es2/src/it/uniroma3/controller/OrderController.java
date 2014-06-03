@@ -1,21 +1,23 @@
 package it.uniroma3.controller;
 
-import java.io.Serializable;
+
 import java.util.Date;
 import java.util.List;
 
 import it.uniroma3.model.Customer;
+import it.uniroma3.model.CustomerFacade;
 import it.uniroma3.model.OrderFacade;
 import it.uniroma3.model.OrderLine;
 import it.uniroma3.model.Order;
 
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
+@ManagedBean(name="orderController")
 @SessionScoped
-@ManagedBean
-public class OrderController implements Serializable{
+public class OrderController {
 	
 
 	/**
@@ -27,9 +29,12 @@ public class OrderController implements Serializable{
     private Date creationtime;
     private Customer customer;
     private List<OrderLine> orderLines;
-	private OrderFacade orderFacade;
+	
 	private Order order;
 	private List<Order> orders;
+	
+	@EJB
+	private OrderFacade orderFacade;
 	
     @ManagedProperty(value="#{customerController}")
     private CustomerController customerController;
@@ -68,9 +73,8 @@ public class OrderController implements Serializable{
 
 	public String createOrder(){
 		//Customer c=customerController.getCustomer();
-		setCustomerOrder();
-		this.order = orderFacade.createOrder();
-		//aggiungimi(); 		// quando creo il prodotto, lo aggiungo alla lista degli ordini del customer che lo ha creato (SI POTREBBE FARE QUANDO C E LA CONFERMA)
+		this.customer = customerController.getCustomer();
+		this.order = orderFacade.createOrder(customer);
 		return "order"; 
 	}
 	

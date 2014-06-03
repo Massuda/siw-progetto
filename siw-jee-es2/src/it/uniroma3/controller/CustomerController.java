@@ -17,7 +17,7 @@ import javax.faces.bean.SessionScoped;
 
 @ManagedBean(name="customerController")
 @SessionScoped
-public class CustomerController implements Serializable{
+public class CustomerController {
 
 	
 	/**
@@ -39,6 +39,8 @@ public class CustomerController implements Serializable{
 
 	@EJB
 	private CustomerFacade customerFacade;
+	
+	
 
 	public String deleteCustomer(){
 		customerFacade.deleteCustomer(id);

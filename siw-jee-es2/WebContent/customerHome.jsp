@@ -18,15 +18,10 @@
 						value="List all Products" />
 				</li>
 				<li>
-					<h:commandLink action="#{orderController.createOrder}"
-						value="New Order" />
+					<h:commandLink action="#{orderController.createOrder}" value="New Order" />
 				</li>
-					<li>
-		<h:commandButton value="New Order"  action="#{orderController.createOrder}"/>
-	</li>
-			<li>
-					<h:commandLink action="#{orderController.provaOrder}"
-						value="vai a prova prende la passw" />
+				<li>
+					<h:commandLink action="#{orderController.provaOrder}" value="vai a prova prende la passw" />
 				</li>
 				</h:form>
 		</ul>

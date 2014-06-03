@@ -8,11 +8,10 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 //add
 
-
-@ManagedBean
+@ManagedBean(name="addressController")
 public class AddressController {
 	
-	@ManagedProperty(value="#{param.id}")
+	
 	private Long id;
 	private String street;
 	private String city;
@@ -32,13 +31,12 @@ public class AddressController {
 	
 	public String updateAddress(){
 		this.address = addressFacade.getAddress(id);
-		
 		return "update";
 	}
 		
-	public String createAddress(String street, String city, String state, String zipcode, String country) {
-		this.address = addressFacade.createAddress( street, city, state, zipcode, country);
-		return "address"; 
+	public String createAddress(){
+		this.address = addressFacade.createAddress(street, city, state, zipcode, country);
+		return "address";
 	}
 	
 	public String listAddress() {
