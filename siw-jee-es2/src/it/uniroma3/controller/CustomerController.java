@@ -14,6 +14,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 @ManagedBean(name="customerController")
 @SessionScoped
@@ -23,6 +24,8 @@ public class CustomerController {
 	/**
 	 * 
 	 */
+
+@ManagedProperty(value="#{param.id}")
 	private Long id;
 	private String firstName;
 	private String lastName;
@@ -93,7 +96,10 @@ public class CustomerController {
 		return nextPage;
 	}
 	
-
+	public String logout (){
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		return "index";
+	}
 
 	public Long getId() {
 		return id;

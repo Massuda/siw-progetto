@@ -23,6 +23,9 @@
 				<li>
 					<h:commandLink action="#{orderController.provaOrder}" value="vai a prova prende la passw" />
 				</li>
+				<li>
+					<h:commandLink action="#{customerController.logout}" value="logout" />
+				</li>
 				</h:form>
 		</ul>
 	</f:view>
