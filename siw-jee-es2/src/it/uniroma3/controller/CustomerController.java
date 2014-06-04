@@ -23,7 +23,6 @@ public class CustomerController {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
 	private Long id;
 	private String firstName;
 	private String lastName;
@@ -41,6 +40,17 @@ public class CustomerController {
 	private CustomerFacade customerFacade;
 	
 	
+	@ManagedProperty(value="#{addressController}")
+    private AddressController addressController;
+	
+
+	public AddressController getAddressController() {
+		return addressController;
+	}
+
+	public void setAddressController(AddressController addressController) {
+		this.addressController = addressController;
+	}
 
 	public String deleteCustomer(){
 		customerFacade.deleteCustomer(id);
@@ -49,6 +59,7 @@ public class CustomerController {
 	}
 
 	public String createCustomer() {
+		this.address = this.addressController.getAddress();
 		this.customer = customerFacade.createCustomer(firstName,lastName,email,password,phoneNumber,dateOfBirth,address);
 		return "customerHome"; 
 	}

@@ -16,7 +16,7 @@
                      requiredMessage="Email is mandatory"
                      id="email"/> <h:message for="email" />
 	</div>
-    <div>password: <h:inputText value="#{customerController.password}" 
+    <div>password: <h:inputSecret value="#{customerController.password}" 
                      required="true"
                      requiredMessage="Password is mandatory"
                      id="password"/> <h:message for="password" />
@@ -28,3 +28,4 @@
 </f:view>
 </body>
 </html>
+

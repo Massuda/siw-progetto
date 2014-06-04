@@ -11,7 +11,7 @@
 </head>
 <body>
 	<f:view>
-		<h1>Welcome ${customerController.firstName}</h1>
+		<h1>Welcome ${customerController.getCustomer().firstName}</h1>
 		<ul><h:form>
 			<li>
 					<h:commandLink action="#{productController.listProducts}"

@@ -23,7 +23,7 @@ public class OrderController {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	
 	private Long id;
 	private String prova;
     private Date creationtime;

@@ -10,14 +10,15 @@ import it.uniroma3.model.ProductFacade;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 import javax.persistence.Column;
 import javax.persistence.FetchType;
 import javax.persistence.OneToOne;
 
-@ManagedBean
+@ManagedBean(name = "orderLineController")
 public class OrderLineController {
 	
-	@ManagedProperty(value="#{param.id}")
+	
     private Long id;
     private Product product;
     private int quantity;
@@ -25,11 +26,22 @@ public class OrderLineController {
 	private OrderLine orderLine;
 	private List<OrderLine> orderLines;
 	
+	@ManagedProperty(value="#{productController}")
+	private ProductController productController;
+
+	public ProductController getProductController() {
+		return productController;
+	}
+
+	public void setProductController(ProductController productController) {
+		this.productController = productController;
+	}
+
 	@EJB
 	private OrderLineFacade orderLineFacade;
 	
 	public String createOrderLine() {
-		this.orderLine = orderLineFacade.createOrderLine(product, quantity);
+		this.orderLine = orderLineFacade.createOrderLine(product, 0);
 		return "orderLine"; 
 	}
 	

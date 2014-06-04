@@ -2,13 +2,18 @@ package it.uniroma3.controller;
 
 
 import java.util.List;
+
 import it.uniroma3.model.Address;
 import it.uniroma3.model.AddressFacade;
+
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 //add
 
 @ManagedBean(name="addressController")
+@SessionScoped
 public class AddressController {
 	
 	
@@ -20,6 +25,8 @@ public class AddressController {
 	private String country;
 	private Address address;
 	private List<Address> addresses;
+	
+	@EJB
 	private AddressFacade addressFacade;
 	
 	

@@ -68,11 +68,9 @@
                      requiredMessage="Zipcode is mandatory"
                      id="zipcode"/> <h:message for="zipcode" />                    
 	</div> 
+	
 	<div>
-		<h:commandButton value="Submit address"  action="#{addressController.createAddress}"/>
-	</div>
-	<div>
-		<h:commandButton value="Submit"  action="#{customerController.createCustomer}"/>
+		<h:commandButton value="Submit"    action="#{customerController.createCustomer}" actionListener="#{addressController.createAddress}"/>
 	</div>
 	
 </h:form>

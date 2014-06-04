@@ -6,21 +6,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>order</title>
+<title>orderLine</title>
 </head>
 <body>
 	<f:view>
-		<h1>${orderController.order.id}</h1>
-		<h2>Details</h2>
-		<div>cust name: ${orderController.getCustomer().firstName}</div>
+		<h1>${orderLineController.id}</h1>
+
 	
 	<div>
 		<a href='<c:url value="/faces/customerHome.jsp" />'>home</a>
 	</div>
-	<h:form>
-		<li><h:commandLink action="#{productController.orderProducts}"
-				value="View products' catalogue" /></li>
-	</h:form>
+
 </f:view>
 </body>
 </html>

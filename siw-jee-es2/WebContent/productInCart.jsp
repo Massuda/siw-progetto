@@ -9,12 +9,12 @@
 </head>
 <body>
 	<f:view>
-		<h1>${orderLineController.product.name}</h1>
+		<h1>${productController.product.name}</h1>
 		<h2>Details</h2>
-		<div>Code: ${orderLineController.product.code}</div>
-		<div>Price: ${orderLineController.product.price}</div>
-		<div>Description: ${orderLineController.product.description}</div>
-		<div>ID: ${orderLineController.product.id}</div>
+		<div>Code: ${productController.product.code}</div>
+		<div>Price: ${productController.product.price}</div>
+		<div>Description: ${productController.product.description}</div>
+		<div>ID: ${productController.product.id}</div>
 	<h:form>
 	<div>Quantity: <h:inputText value="#{orderLineController.quantity}" 
                      required="true"

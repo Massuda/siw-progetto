@@ -8,8 +8,10 @@ import it.uniroma3.model.ProductFacade;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 
-@ManagedBean
+@ManagedBean(name = "productController")
+
 public class ProductController {
 
 	@ManagedProperty(value="#{param.id}")
@@ -49,6 +51,11 @@ public class ProductController {
 	public String viewProducts() {
 		this.products = productFacade.getAllProducts();
 		return "viewProducts"; 
+	}
+	
+	public String orderProducts() {
+		this.products = productFacade.getAllProducts();
+		return "orderProducts"; 
 	}
 	
 	public String findProduct() {
